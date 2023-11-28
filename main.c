@@ -2,6 +2,42 @@
 #include <math.h>
 #include <string.h>
 
+double operation_en_chaine(){  // ca marche pas
+    double nombre1;
+    char operateur;
+    double nombre2;
+    double resultat;
+    printf("entrez deux nombres");
+    scanf("%lf",&nombre1);
+    scanf("%lf",&nombre2);
+    while (1){
+        resultat = nombre1;
+        printf("entrez un autre nombre\n");
+        scanf("%lf",&nombre2);
+        printf("entrez un operateur");
+        scanf("%c",&operateur);
+        switch (operateur) {
+            case '+':
+                resultat = nombre1 + nombre2;
+            case '-':
+                resultat = nombre1 - nombre2;
+            case '*':
+                resultat = nombre1 * nombre2;
+            case '/':
+                if (nombre2 != 0) {
+                    resultat = nombre1 / nombre2;
+                } else {
+                    printf("Il est impossible de diviser par 0.\n");
+                    return 0.0;
+                }
+
+            case 'p':
+                resultat = pow(nombre1, nombre2);
+            case 'q':
+                break;
+    }
+}
+
 int main() {
     printf("Bienvenue dans la calculatrice\n");
     while (1){
@@ -70,10 +106,7 @@ int main() {
         }
 
         else if (choix == 'o'){
-            double operation;
-            printf("entrez une operation\n");
-            scanf(" %lf", &operation);
-            printf("%.2f\n", operation);
+            printf("%.2f", operation_en_chaine())
         }
 
         else if (choix == 'q'){
