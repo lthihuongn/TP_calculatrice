@@ -2,8 +2,8 @@
 #include <math.h>
 
 int main() {
+    printf("Bienvenue dans la calculatrice\n");
     while (1){
-        printf("Bienvenue dans la calculatrice\n");
         printf("Que voulez vous faire ?\n");
         printf("appuyez sur + : addition, - : soustraction, * multiplication, / : division, p : puissance, r : racine carree, % : pourcentage, q : quitter\n");
         char choix;
@@ -30,11 +30,16 @@ int main() {
             printf("%.2f * %.2f = %.2f\n", nombre1, nombre2, nombre1 * nombre2);
         }
         else if (choix == '/'){
-            double nombre1, nombre2;
+            double numerateur, denominateur;
             printf("entrez deux nombres\n");
-            scanf(" %lf", &nombre1);
-            scanf(" %lf", &nombre2);
-            printf("%.2f / %.2f = %.2f\n", nombre1, nombre2, nombre1/ nombre2);
+            scanf(" %lf", &numerateur);
+            scanf(" %lf", &denominateur);
+            if (denominateur != 0){
+                printf("%.2f / %.2f = %.2f\n", numerateur, denominateur, numerateur/denominateur);
+            }
+            else{
+                printf("il est impossible de diviser par 0\n");
+            }
         }
         else if (choix == 'p'){
             double nombre1, puissance;
@@ -47,7 +52,13 @@ int main() {
             double nombre;
             printf("entrez un nombre\n");
             scanf(" %lf", &nombre);
-            printf("racine carree de %.2f = %.2f\n", nombre, sqrt(nombre));
+            if (nombre > 0){
+                printf("racine carree de %.2f = %.2f\n", nombre, sqrt(nombre));
+            }
+            else{
+                printf("la racine carree d'un nombre negatif est un non reel\n");
+            }
+
         }
         else if (choix == '%'){
             double nombre, pourcent;
@@ -55,8 +66,8 @@ int main() {
             scanf(" %lf", &nombre);
             scanf(" %lf", &pourcent);
             printf("%.2f pourcent de %.2f = %.2f\n", pourcent, nombre, nombre * (pourcent/100));
-
         }
+
         else if (choix == 'q'){
             printf("au revoir\n");
             break;
