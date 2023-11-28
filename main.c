@@ -1,11 +1,12 @@
 #include <stdio.h>
 #include <math.h>
+#include <string.h>
 
 int main() {
     printf("Bienvenue dans la calculatrice\n");
     while (1){
         printf("Que voulez vous faire ?\n");
-        printf("appuyez sur + : addition, - : soustraction, * multiplication, / : division, p : puissance, r : racine carree, % : pourcentage, q : quitter\n");
+        printf("appuyez sur + : addition, - : soustraction, * multiplication, / : division, p : puissance, r : racine carree, % : pourcentage, o : operation en chaine, q : quitter\n");
         char choix;
         scanf(" %c", &choix);
         if (choix == '+'){
@@ -66,6 +67,13 @@ int main() {
             scanf(" %lf", &nombre);
             scanf(" %lf", &pourcent);
             printf("%.2f pourcent de %.2f = %.2f\n", pourcent, nombre, nombre * (pourcent/100));
+        }
+
+        else if (choix == 'o'){
+            double operation;
+            printf("entrez une operation\n");
+            scanf(" %lf", &operation);
+            printf("%.2f\n", operation);
         }
 
         else if (choix == 'q'){
